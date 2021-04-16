@@ -78,7 +78,8 @@ class JitsiFactory {
      * Slugifies the room name and prepends the room name with the instance
      */
     public getRoomName(roomName: string, instance: string): string {
-        return slugify(instance.replace('/', '-') + "-" + roomName);
+        //return slugify(instance.replace('/', '-') + "-" + roomName);
+        return roomName;
     }
 
     public start(roomName: string, playerName:string, jwt?: string, config?: object, interfaceConfig?: object, jitsiUrl?: string): void {
