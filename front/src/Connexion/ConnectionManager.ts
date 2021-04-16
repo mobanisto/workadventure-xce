@@ -7,7 +7,6 @@ import {localUserStore} from "./LocalUserStore";
 import {LocalUser} from "./LocalUser";
 import {Room} from "./Room";
 
-
 class ConnectionManager {
     private localUser!:LocalUser;
 
@@ -45,7 +44,7 @@ class ConnectionManager {
             const room = new Room('/@/'+organizationSlug+'/'+worldSlug+'/'+roomSlug + window.location.search + window.location.hash);
             urlManager.pushRoomIdToUrl(room);
             return Promise.resolve(room);
-        } else if (connexionType === GameConnexionTypes.organization || connexionType === GameConnexionTypes.anonymous || connexionType === GameConnexionTypes.empty) {
+        } else if (connexionType === GameConnexionTypes.organization || connexionType === GameConnexionTypes.anonymous) {
             const localUser = localUserStore.getLocalUser();
 
             if (localUser && localUser.jwtToken && localUser.uuid && localUser.textures) {
@@ -60,13 +59,12 @@ class ConnectionManager {
             } else {
                 await this.anonymousLogin();
             }
-            let roomId: string
-            if (connexionType === GameConnexionTypes.empty) {
-                roomId = START_ROOM_URL;
-            } else {
-                roomId = window.location.pathname + window.location.search + window.location.hash;
+            const regex = /@\/([^/]+)/gm;
+            const match = regex.exec(window.location.pathname);
+            if (!match) {
+                return Promise.reject('Invalid URL');
             }
-            return Promise.resolve(new Room(roomId));
+            return Promise.resolve(new Room('/@/'+match[1]));
         }
 
         return Promise.reject(new Error('Invalid URL'));

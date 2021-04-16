@@ -45,7 +45,7 @@ export class ErrorScene extends Phaser.Scene {
     }
 
     create() {
-        this.logo = new Image(this, this.game.renderer.width - 30, this.game.renderer.height - 20, Textures.icon);
+        this.logo = new Image(this, this.game.renderer.width - 60, this.game.renderer.height - 20, Textures.icon);
         this.add.existing(this.logo);
 
         this.titleField = new TextField(this, this.game.renderer.width / 2, this.game.renderer.height / 2, this.title);

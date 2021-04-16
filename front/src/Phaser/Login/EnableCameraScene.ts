@@ -96,7 +96,7 @@ export class EnableCameraScene extends Phaser.Scene {
         this.arrowDown.setInteractive().on('pointerdown', this.nextMic.bind(this));
         this.add.existing(this.arrowDown);
 
-        this.logo = new Image(this, this.game.renderer.width - 30, this.game.renderer.height - 20, LoginTextures.icon);
+        this.logo = new Image(this, this.game.renderer.width - 60, this.game.renderer.height - 20, LoginTextures.icon);
         this.add.existing(this.logo);
 
         this.input.keyboard.on('keyup-ENTER', () => {

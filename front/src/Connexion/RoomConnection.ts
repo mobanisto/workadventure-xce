@@ -73,6 +73,7 @@ export class RoomConnection implements RoomConnection {
             url += '/';
         }
         url += 'room';
+        roomId = roomId.replace('@', '_') + "/mainworld";
         url += '?roomId='+(roomId ?encodeURIComponent(roomId):'');
         url += '&token='+(token ?encodeURIComponent(token):'');
         url += '&name='+encodeURIComponent(name);

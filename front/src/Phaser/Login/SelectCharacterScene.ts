@@ -89,7 +89,7 @@ export class SelectCharacterScene extends AbstractCharacterScene {
 
         this.selectedRectangle = this.add.rectangle(rectangleXStart, 90, 32, 32).setStrokeStyle(2, 0xFFFFFF);
 
-        this.logo = new Image(this, this.game.renderer.width - 30, this.game.renderer.height - 20, LoginTextures.icon);
+        this.logo = new Image(this, this.game.renderer.width - 60, this.game.renderer.height - 20, LoginTextures.icon);
         this.add.existing(this.logo);
 
         this.input.keyboard.on('keyup-ENTER', () => {

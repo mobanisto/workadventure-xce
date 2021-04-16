@@ -30,7 +30,7 @@ export class ReconnectingScene extends Phaser.Scene {
     }
 
     create() {
-        this.logo = new Image(this, this.game.renderer.width - 30, this.game.renderer.height - 20, ReconnectingTextures.icon);
+        this.logo = new Image(this, this.game.renderer.width - 60, this.game.renderer.height - 20, ReconnectingTextures.icon);
         this.add.existing(this.logo);
 
         this.reconnectingField = new TextField(this, this.game.renderer.width / 2, this.game.renderer.height / 2, "Connection lost. Reconnecting...");
