@@ -65,6 +65,7 @@ services:
       ADMIN_API_TOKEN: "$ADMIN_API_TOKEN"
       JITSI_URL: $JITSI_URL
       JITSI_ISS: $JITSI_ISS
+      TURN_STATIC_AUTH_SECRET: $TURN_STATIC_AUTH_SECRET
     labels:
       - "traefik.http.middlewares.strip-api-prefix.stripprefix.prefixes=/api"
       - "traefik.http.routers.back.rule=PathPrefix(`/api`)"
